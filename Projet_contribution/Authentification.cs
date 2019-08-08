@@ -8,12 +8,13 @@ namespace Projet_contribution.Models
 {
     public class Authentification
     {
-        public Boolean check_login()
+        public User user = new User();
+        public Boolean check_login(String username)
         {
             Boolean reponse = false;
             Database database = new Database();
-            User utilisateur= database.Get_user("exemple");
-            if(utilisateur!=null && utilisateur.Active==true)
+            user= database.Get_user(username);
+            if(user!=null && user.Active==true)
             {
                 reponse = true;
             }
